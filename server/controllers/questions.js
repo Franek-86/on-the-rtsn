@@ -1,6 +1,6 @@
 const QA = require("../models/questions");
 // const { createCustomError } = require("../errors/custom-error");
-const { BadRequestError } = require("../errors");
+const { BadRequestError, UnauthenticatedError } = require("../errors");
 const jwt = require("jsonwebtoken");
 const { StatusCodes } = require("http-status-codes");
 const User = require("../models/users");
@@ -10,13 +10,13 @@ const getAllQuestionsStatic = async (req, res, next) => {
   res.status(200).json({ allQuestions });
 };
 const getAllQuestions = async (req, res, next) => {
+  // console.log(req.user);
   const { category } = req.query;
-  console.log(category);
+  // console.log(category);
   let queryObject = {};
   if (category) {
     queryObject.category = { $regex: category, $options: "i" };
   }
-  console.log(queryObject);
   const allQuestions = await QA.find(queryObject);
   res.status(200).json({ allQuestions });
 };
@@ -26,7 +26,6 @@ const postQuestion = async (req, res) => {
   res.status(201).json({ question });
 };
 const register = async (req, res) => {
-  console.log("sta?");
   const user = await User.create({ ...req.body });
   const token = user.createJWT();
   res
@@ -36,7 +35,6 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
   const { username, password } = req.body;
-  console.log(req.body);
   // mongoose validation
   // Joi
   // check in the controller

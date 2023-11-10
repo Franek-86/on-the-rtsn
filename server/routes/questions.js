@@ -4,14 +4,16 @@ const authenticationMiddleware = require("../middleware/auth");
 const {
   getAllQuestions,
   postQuestion,
-  getCategoryQuestions,
   getAllQuestionsStatic,
   login,
   userData,
   register,
 } = require("../controllers/questions");
 
-router.route("/").get(getAllQuestions).post(postQuestion);
+router
+  .route("/")
+  .get(authenticationMiddleware, getAllQuestions)
+  .post(postQuestion);
 router.route("/login").post(login);
 router.route("/register").post(register);
 router.route("/rtsn").get(authenticationMiddleware, userData);

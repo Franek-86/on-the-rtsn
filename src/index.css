@@ -115,7 +115,8 @@ a {
 }
 /* ------------------------------------------start-section----------------------------------- */
 
-.start-section {
+.start-section,
+.form-page {
   position: absolute;
   display: grid;
   align-content: center;
@@ -245,68 +246,31 @@ a {
 /* ----------------------------------login---------------------------------- */
 
 .form-container {
-  width: 80vw;
-  margin: 5rem auto;
+  width: 40vw;
+}
+.form-container p {
+  font-weight: 500;
+  color: var(--clr-secondary-8);
 }
 
 .member-btn {
   color: var(--clr-primary-5);
   background-color: transparent;
   border-color: transparent;
+  font-weight: 600;
+  padding-left: 0.5rem;
 }
-
+@media screen and (max-width: 500px) {
+  .form-container {
+    width: 80vw;
+  }
+}
 /* ------------------------------------------changing leaflet default settings----------------------------------- */
 
 .leaflet-control-container {
   opacity: 0 !important;
 }
 /* ------------------------------------------modal----------------------------------- */
-
-/* <section
-      className={!isModalOpen ? "section-modal" : "section-modal show-modal"}
-    >
-      <article className='modal modal-1'>
-        <div className='modal-title'>
-          <div className='modal-icon'>
-            <SiChainguard className='modal-brand-icon' />
-          </div>
-          <h3>the {flag ? "Musicals & Theatres" : category} quiz</h3>
-          <button onClick={closeModal} className='close-modal'>
-            <AiOutlineCloseSquare className='modal-brand' />
-          </button>
-        </div>
-        <div className='modal-center'>
-          <div className='modal-text'>
-            <p>{text}</p>
-            <ul>
-              <li>
-                <h4>Category: </h4>
-                <span>{flag ? "Musicals & Theatres" : category}</span>;
-              </li>
-              <li>
-                <h4>Number of questions: </h4>
-                <span>{amount};</span>
-              </li>
-              <li>
-                <h4>Difficulty level: </h4>
-                <span>{difficulty};</span>
-              </li>
-              <li>
-                <h4>Test number: </h4>
-                <span>
-                  {locationIndex + 1} of {center.length};
-                </span>
-              </li>
-            </ul>
-          </div>
-          <div className='open-modal-btn'>
-            <button className='btn open-btn' onClick={handleSubmit}>
-              start test
-            </button>
-          </div>
-        </div>
-      </article>
-    </section> */
 
 .modal-text p {
   line-height: 1.5rem;

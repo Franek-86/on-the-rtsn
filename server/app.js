@@ -4,11 +4,13 @@ require("express-async-errors");
 const question = require("./routes/questions");
 const errorHandlerMiddleware = require("./middleware/error-handler");
 const notFound = require("./middleware/not-found");
+
 const app = express();
 require("dotenv").config();
 // extra security packages
 
 const cors = require("cors");
+const authenticationMiddleware = require("./middleware/auth");
 
 let url = process.env.MONGO_URI;
 let port = process.env.PORT || 8000;

@@ -20,7 +20,9 @@ const End = () => {
     setWaiting,
     setLocIndex,
   } = useGlobalContext();
+  var user = JSON.parse(localStorage.getItem("user"));
 
+  let userName = user.name;
   return (
     <section className='end-section'>
       <div className='end-wrapper'>
@@ -29,8 +31,8 @@ const End = () => {
         </article>
         <article className='end-text'>
           <p>
-            You successfully completed the <span>"road to Saint Nicholas"</span>{" "}
-            quiz tour.
+            {`${userName} successfully completed the <span>"road to Saint Nicholas"</span>{" "}
+            quiz tour.`}
           </p>
           <div className='end-btn-container'>
             <button className='btn end-btn'>end quiz</button>

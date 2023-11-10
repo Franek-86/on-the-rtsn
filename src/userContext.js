@@ -72,9 +72,8 @@ const UserProvider = ({ children }) => {
       dispatch({ type: REGISTER_USER_SUCCESS, payload: data.user.username });
       localStorage.setItem(
         "user",
-        JSON.stringify({ name: data.username, token: data.token })
+        JSON.stringify({ name: data.user.username, token: data.token })
       );
-      JSON.stringify({ name: "ciao" });
     } catch (error) {
       // dispatch({ type: REGISTER_USER_ERROR });
       console.log(error);

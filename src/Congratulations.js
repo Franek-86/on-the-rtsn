@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useGlobalContext } from "./context";
 
 const Congratulations = () => {
@@ -31,10 +31,14 @@ const Congratulations = () => {
     }
   };
 
+  var getName = JSON.parse(localStorage.getItem("user"));
+
+  let name = getName.name;
+
   return (
     <div className={isModalOpen ? "modal-container isOpen" : "modal-container"}>
       <div className='modal-content'>
-        <h2>congrats!</h2>
+        <h2>{`congrats ${name}!`}</h2>
         <p>
           You answered {((correct / questions.length) * 100).toFixed(0)}% of
           questions correctly
