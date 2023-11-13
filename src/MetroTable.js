@@ -1,7 +1,9 @@
 import React from "react";
 import { useGlobalContext } from "./context";
+import { useUserContext } from "./userContext";
 const MetroTable = () => {
   const { center, locationIndex } = useGlobalContext();
+  const { logout, user } = useUserContext();
   let weekDays = [
     "Monday",
     "Tuesday",
@@ -37,8 +39,13 @@ const MetroTable = () => {
       <div className='metro-wrapper'>
         <div className='metro-header'>
           <h2 className='metro-name'>
-            bus line: <span className='metro-stop-name'>rtsn</span>
+            bus line: <span className='metro-stop-name'>rtsn</span>{" "}
+            <span className='passanger'>/passenger name: {user} </span>/{" "}
+            <span className='metro-logout' onClick={logout}>
+              logout
+            </span>
           </h2>
+
           <div className='date-wrapper'>
             <h2>
               {day} {date}/{month}/{year} <span className='time'>{time}</span>

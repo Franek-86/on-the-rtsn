@@ -871,17 +871,29 @@ li > h5 {
   left: 0;
   position: absolute;
   display: grid;
+  place-items: center;
+  background: linear-gradient(rgb(168, 186, 170, 0.8), rgb(168, 186, 170, 0.6));
 }
 .end-wrapper {
   background-color: var(--clr-primary-4);
   position: relative;
-  place-self: center;
-  width: 80vw;
-  height: 80vh;
+  width: 70vw;
+  height: 90vh;
   border-radius: var(--radius);
   box-shadow: var(--dark-shadow);
+  min-width: 200px;
 }
-
+@media screen and (max-width: 500px) {
+  .end-wrapper {
+    width: 90vw;
+    height: 90vh;
+  }
+}
+@media screen and (max-width: 270px) {
+  .end-wrapper {
+    width: 100vw;
+  }
+}
 .end-wrapper {
   display: grid;
   grid-template-columns: 1fr;
@@ -895,7 +907,7 @@ li > h5 {
   font-size: 7.5rem;
   align-self: end;
   color: var(--clr-secondary-4);
-  padding: 2rem 2.2rem 0.8rem 2.2rem;
+  padding: 0rem 2.2rem 0.8rem 2.2rem;
   border: 5px solid var(--clr-secondary-1);
   border-radius: 50%;
 }
@@ -905,10 +917,7 @@ li > h5 {
   font-size: 2rem;
   text-align: center;
   display: grid;
-  align-items: center;
-  justify-items: center;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr;
+  place-items: center;
 }
 .end-btn-container {
   display: flex;
@@ -1210,6 +1219,22 @@ li > h5 {
 .metro-name {
   text-align: left;
   margin-left: 1rem;
+}
+.metro-logout {
+  cursor: pointer;
+  letter-spacing: 0rem;
+  text-transform: capitalize;
+  color: var(--clr-primary-3);
+}
+@media screen and (max-width: 700px) {
+  .passanger {
+    display: none;
+  }
+}
+
+.metro-logout:hover {
+  cursor: pointer;
+  color: var(--clr-primary-7);
 }
 .date-wrapper {
   position: absolute;

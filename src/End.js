@@ -1,47 +1,58 @@
 import React from "react";
 import { FaTrophy } from "react-icons/fa";
+// import { useGlobalContext } from "./context";
 import { useGlobalContext } from "./context";
+import { useUserContext } from "./userContext";
+import { Link } from "react-router-dom";
+import Map from "./Map";
+
 const End = () => {
-  const {
-    start,
-    reStart,
-    closeModal,
-    locationIndex,
-    questions,
-    setCenter,
-    handleSubmit,
-    fetchQuestions,
-    url,
-    isSecondModalOpen,
-    closeSecondModal,
-    startJourney,
-    nextLocation,
-    setLocationIndex,
-    setWaiting,
-    setLocIndex,
-  } = useGlobalContext();
+  // const { start, reStart } = useGlobalContext();
+  const { start, reStart } = useGlobalContext();
+  const { logout } = useUserContext();
+
   var user = JSON.parse(localStorage.getItem("user"));
 
   let userName = user.name;
   return (
-    <section className='end-section'>
-      <div className='end-wrapper'>
-        <article className='end-icon'>
-          <FaTrophy />
-        </article>
-        <article className='end-text'>
-          <p>
-            {`${userName} successfully completed the <span>"road to Saint Nicholas"</span>{" "}
-            quiz tour.`}
-          </p>
-          <div className='end-btn-container'>
-            <button className='btn end-btn'>end quiz</button>
-            <button onClick={reStart} className='btn start-again-btn'>
-              back to intro
-            </button>
-          </div>
-        </article>
-      </div>
+    <section className='map-section'>
+      <Map></Map>
+      <section className='end-section'>
+        <div className='end-wrapper'>
+          <article className='end-icon'>
+            <FaTrophy />
+          </article>
+          <article className='end-text'>
+            <p>
+              Well done <span>{userName}</span>!
+            </p>
+            <p>
+              You successfully completed the`{" "}
+              <span>road to Saint Nicholas </span>
+              quiz tour.
+            </p>
+            <div className='end-btn-container'>
+              <Link
+                to='/start'
+                onClick={() => {
+                  reStart();
+                  logout();
+                }}
+                className='btn end-btn'
+              >
+                end quiz
+              </Link>
+              <Link
+                to='/rtsn'
+                onClick={reStart}
+                className='btn start-again-btn'
+              >
+                back to airport
+              </Link>
+            </div>
+          </article>
+        </div>
+      </section>
     </section>
   );
 };

@@ -2,6 +2,7 @@ import axios from "axios";
 
 import React, { useState, useContext } from "react";
 import { quizArr } from "./data";
+import { Navigate } from "react-router-dom";
 
 const tempUrl =
   "https://opentdb.com/api.php?amount=2&category=21&difficulty=easy&type=multiple";
@@ -28,6 +29,7 @@ const setLocIndex = () => {
 };
 
 const AppProvider = ({ children }) => {
+  // const [locationIndex, setLocationIndex] = useState(setLocIndex);
   const [locationIndex, setLocationIndex] = useState(setLocIndex);
   const [center, setCenter] = useState([
     ["airport", { lat: 41.1376372629904, lng: 16.765180540261554 }],
@@ -52,6 +54,7 @@ const AppProvider = ({ children }) => {
   const [quiz, setQuiz] = useState(quizArr);
 
   const loadQuiz = () => {
+    console.log(locationIndex);
     setQuiz(quiz[locationIndex]);
   };
   const resetQuiz = () => {

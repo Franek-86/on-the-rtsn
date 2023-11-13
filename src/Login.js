@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import { useForm } from "react-hook-form";
-import { useGlobalContext } from "./userContext";
+import { useUserContext } from "./userContext";
 import { Navigate } from "react-router-dom";
 // import { login } from "../server/controllers/questions";
 const Login = () => {
@@ -14,9 +14,7 @@ const Login = () => {
     watch,
     formState: { errors },
   } = useForm();
-  const { registerUser, login, isLoading, user, showAlert } =
-    useGlobalContext();
-  console.log(isLoading);
+  const { registerUser, login, isLoading, user, showAlert } = useUserContext();
 
   const onSubmit = (data) => {
     if (!member) {

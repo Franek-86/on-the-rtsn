@@ -13,6 +13,7 @@ const Failure = () => {
     url,
     isSecondModalOpen,
     closeSecondModal,
+    resetQuiz,
   } = useGlobalContext();
   console.log("isSecondModalOpen", isSecondModalOpen);
   return (
@@ -27,7 +28,14 @@ const Failure = () => {
           <button className='close-btn play-again' onClick={closeSecondModal}>
             play again
           </button>
-          <button className='close-btn back-to-map' onClick={closeModal}>
+          <button
+            className='close-btn back-to-map'
+            onClick={() => {
+              closeSecondModal();
+              closeModal();
+              resetQuiz();
+            }}
+          >
             back to map
           </button>
         </div>

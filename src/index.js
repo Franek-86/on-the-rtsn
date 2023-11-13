@@ -7,10 +7,16 @@ import "./index.css";
 
 import App from "./App";
 import { AppProvider } from "./context";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+} from "react-router-dom";
 import Start from "./Start";
 import Login from "./Login";
 import { UserProvider } from "./userContext";
+import End from "./End";
+import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
   {
@@ -22,18 +28,26 @@ const router = createBrowserRouter([
     element: <Login />,
   },
   {
-    path: "rtsn",
-    element: <App />,
+    element: <PrivateRoutes />,
+    children: [
+      { path: "/rtsn", element: <App /> },
+      { path: "/end", element: <End /> },
+      { path: "*", element: <Navigate to='/' replace /> },
+    ],
+  },
+  {
+    path: "/end",
+    element: <End />,
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <UserProvider>
-      <AppProvider>
+    <AppProvider>
+      <UserProvider>
         <RouterProvider router={router} />
-      </AppProvider>
-    </UserProvider>
+      </UserProvider>
+    </AppProvider>
   </React.StrictMode>
 );
 

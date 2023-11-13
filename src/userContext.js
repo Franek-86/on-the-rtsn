@@ -1,16 +1,20 @@
 import axios from "axios";
 import "./axios";
 import React, { useContext, useEffect, useReducer } from "react";
-
+import { useGlobalContext } from "./context";
 const SET_LOADING = "SET_LOADING";
 const REGISTER_USER_SUCCESS = "REGISTER_USER_SUCCESS";
 const REGISTER_USER_ERROR = "REGISTER_USER_ERROR";
 const SET_USER = "SET_USER";
 const LOGOUT_USER = "LOGOUT_USER";
+const SET_ALERT_OFF = "SET_ALERT_OFF";
 
 const reducer = (state, action) => {
   if (action.type === SET_LOADING) {
     return { ...state, isLoading: true, showAlert: false };
+  }
+  if (action.type === SET_LOADING) {
+    return { ...state, showAlert: false };
   }
 
   if (action.type === REGISTER_USER_SUCCESS) {
@@ -39,6 +43,12 @@ const reducer = (state, action) => {
       showAlert: false,
     };
   }
+  if (action.type === SET_ALERT_OFF) {
+    return {
+      ...state,
+      showAlert: false,
+    };
+  }
 };
 
 const initialState = {
@@ -50,10 +60,15 @@ const initialState = {
 const AppContext = React.createContext();
 
 const UserProvider = ({ children }) => {
+  const { setLocationIndex } = useGlobalContext();
+  console.log(setLocationIndex);
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const setLoading = () => {
     dispatch({ type: SET_LOADING });
+  };
+  const setAlertOff = () => {
+    dispatch(SET_ALERT_OFF);
   };
 
   // register
@@ -103,6 +118,7 @@ const UserProvider = ({ children }) => {
   // logout
   const logout = () => {
     localStorage.removeItem("user");
+    setLocationIndex(0);
     dispatch({ type: LOGOUT_USER });
   };
 
@@ -113,6 +129,13 @@ const UserProvider = ({ children }) => {
       dispatch({ type: SET_USER, payload: newUser.name });
     }
   }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      dispatch({ type: SET_ALERT_OFF });
+    }, 3000);
+  }, [state.showAlert]);
+  console.log(initialState.showAlert);
   return (
     <AppContext.Provider
       value={{
@@ -127,7 +150,7 @@ const UserProvider = ({ children }) => {
   );
 };
 // make sure use
-export const useGlobalContext = () => {
+export const useUserContext = () => {
   return useContext(AppContext);
 };
 

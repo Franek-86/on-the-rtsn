@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useGlobalContext } from "./context";
+import { useNavigate } from "react-router-dom";
 
 const Congratulations = () => {
   const {
@@ -18,11 +19,15 @@ const Congratulations = () => {
     resetQuiz,
     slideRoad,
   } = useGlobalContext();
+  const navigate = useNavigate();
   let closeResultsAndShowCricket = () => {
+    console.log(locationIndex);
+
     if (locationIndex === 4) {
       console.log("fine");
       closeSecondModal();
-      endJourney();
+      resetQuiz();
+      navigate("/end");
     } else {
       showOctopus();
       closeSecondModal();
