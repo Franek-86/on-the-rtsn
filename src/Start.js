@@ -1,6 +1,8 @@
 import React from "react";
 import { test } from "./testServer";
 import { useGlobalContext } from "./context";
+import { Link } from "react-router-dom";
+
 const Start = () => {
   // const { startJourney } = useGlobalContext();
   test();
@@ -15,9 +17,9 @@ const Start = () => {
         </div>
         {/* <div className='btn-wrapper' onClick={startJourney}> */}
         <div className='btn-wrapper'>
-          <a href={`/login`} className='btn start-btn'>
+          <Link to='/login' className='btn start-btn'>
             start journey
-          </a>
+          </Link>
         </div>
       </div>
     </section>

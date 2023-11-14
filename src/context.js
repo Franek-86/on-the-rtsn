@@ -17,7 +17,7 @@ const table = {
   Musicals_And_Theatres: 13,
 };
 
-const API_ENDPOINT = "https://opentdb.com/api.php?";
+// const API_ENDPOINT = "https://opentdb.com/api.php?";
 let localization;
 const setLocIndex = () => {
   if (localStorage.getItem("locationIndex")) {
@@ -191,7 +191,7 @@ const AppProvider = ({ children }) => {
     e.preventDefault();
     const { amount, category, difficulty } = quiz;
     // const url = `${API_ENDPOINT}amount=${amount}&difficulty=${difficulty}&category=${table[category]}&type=multiple`;
-    const url = `/api/v1/questions?category=${category}`;
+    const url = `https://rtsn-b.onrender.com/api/v1/questions?category=${category}`;
     setUrl(url);
     fetchQuestions(url);
   };

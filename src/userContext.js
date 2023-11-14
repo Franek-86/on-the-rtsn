@@ -61,7 +61,6 @@ const AppContext = React.createContext();
 
 const UserProvider = ({ children }) => {
   const { setLocationIndex } = useGlobalContext();
-  console.log(setLocationIndex);
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const setLoading = () => {
@@ -73,16 +72,14 @@ const UserProvider = ({ children }) => {
 
   // register
   const registerUser = async (userInput) => {
-    console.log(userInput);
     setLoading();
     try {
       const { data } = await axios.post(
-        `http://localhost:8000/api/v1/questions/register`,
+        `https://rtsn-b.onrender.com/api/v1/questions/register`,
         {
           ...userInput,
         }
       );
-      console.log(data);
 
       dispatch({ type: REGISTER_USER_SUCCESS, payload: data.user.username });
       localStorage.setItem(
@@ -90,8 +87,8 @@ const UserProvider = ({ children }) => {
         JSON.stringify({ name: data.user.username, token: data.token })
       );
     } catch (error) {
-      // dispatch({ type: REGISTER_USER_ERROR });
       console.log(error);
+      dispatch({ type: REGISTER_USER_ERROR });
     }
   };
 
@@ -100,7 +97,7 @@ const UserProvider = ({ children }) => {
     setLoading();
     try {
       const { data } = await axios.post(
-        `http://localhost:8000/api/v1/questions/login`,
+        `https://rtsn-b.onrender.com/api/v1/questions/login`,
         {
           ...userInput,
         }
@@ -135,7 +132,7 @@ const UserProvider = ({ children }) => {
       dispatch({ type: SET_ALERT_OFF });
     }, 3000);
   }, [state.showAlert]);
-  console.log(initialState.showAlert);
+
   return (
     <AppContext.Provider
       value={{
