@@ -77,7 +77,7 @@ const UserProvider = ({ children }) => {
     setLoading();
     try {
       const { data } = await axios.post(
-        `https://rtsn-v2b.onrender.com/api/v1/auth/register`,
+        `https://rtsn-b.onrender.com/api/v1/auth/register`,
         {
           ...userInput,
         }
@@ -99,7 +99,7 @@ const UserProvider = ({ children }) => {
     setLoading();
     try {
       const { data } = await axios.post(
-        `https://rtsn-v2b.onrender.com/api/v1/auth/login`,
+        `https://rtsn-b.onrender.com/api/v1/auth/login`,
         {
           ...userInput,
         }
