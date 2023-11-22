@@ -1,4 +1,3 @@
-// import "leaflet/dist/leaflet.css";
 import "../../node_modules/leaflet/dist/leaflet.css";
 import Map from "../components/Map";
 import Loading from "../components/Loading";
