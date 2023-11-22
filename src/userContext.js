@@ -1,5 +1,5 @@
 import axios from "axios";
-import "./axios";
+import "./utils/axios";
 import React, { useContext, useEffect, useReducer } from "react";
 import { useGlobalContext } from "./context";
 const SET_LOADING = "SET_LOADING";
@@ -8,6 +8,7 @@ const REGISTER_USER_ERROR = "REGISTER_USER_ERROR";
 const SET_USER = "SET_USER";
 const LOGOUT_USER = "LOGOUT_USER";
 const SET_ALERT_OFF = "SET_ALERT_OFF";
+const SET_ALERT_ON = "SET_ALERT_ON";
 
 const reducer = (state, action) => {
   if (action.type === SET_LOADING) {
@@ -22,6 +23,7 @@ const reducer = (state, action) => {
       ...state,
       isLoading: false,
       user: action.payload,
+      showAlert: true,
     };
   }
   if (action.type === REGISTER_USER_ERROR) {
@@ -60,7 +62,7 @@ const initialState = {
 const AppContext = React.createContext();
 
 const UserProvider = ({ children }) => {
-  const { setLocationIndex } = useGlobalContext();
+  const { setLocationIndex, setSlideRoad } = useGlobalContext();
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const setLoading = () => {
@@ -74,12 +76,9 @@ const UserProvider = ({ children }) => {
   const registerUser = async (userInput) => {
     setLoading();
     try {
-      const { data } = await axios.post(
-        `https://rtsn-b.onrender.com/api/v1/questions/register`,
-        {
-          ...userInput,
-        }
-      );
+      const { data } = await axios.post(`/api/v1/auth/register`, {
+        ...userInput,
+      });
 
       dispatch({ type: REGISTER_USER_SUCCESS, payload: data.user.username });
       localStorage.setItem(
@@ -96,12 +95,9 @@ const UserProvider = ({ children }) => {
   const login = async (userInput) => {
     setLoading();
     try {
-      const { data } = await axios.post(
-        `https://rtsn-b.onrender.com/api/v1/questions/login`,
-        {
-          ...userInput,
-        }
-      );
+      const { data } = await axios.post(`/api/v1/auth/login`, {
+        ...userInput,
+      });
       dispatch({ type: REGISTER_USER_SUCCESS, payload: data.user.name });
       localStorage.setItem(
         "user",
@@ -115,7 +111,11 @@ const UserProvider = ({ children }) => {
   // logout
   const logout = () => {
     localStorage.removeItem("user");
+    localStorage.removeItem("slideIndex");
+    localStorage.removeItem("locationIndex");
     setLocationIndex(0);
+    setSlideRoad(0);
+
     dispatch({ type: LOGOUT_USER });
   };
 
@@ -132,7 +132,7 @@ const UserProvider = ({ children }) => {
       dispatch({ type: SET_ALERT_OFF });
     }, 3000);
   }, [state.showAlert]);
-
+  const [member, setIsMember] = React.useState(true);
   return (
     <AppContext.Provider
       value={{
@@ -140,6 +140,8 @@ const UserProvider = ({ children }) => {
         registerUser,
         login,
         logout,
+        setIsMember,
+        member,
       }}
     >
       {children}

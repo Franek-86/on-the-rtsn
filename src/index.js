@@ -5,18 +5,18 @@ import ReactDOM from "react-dom/client";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 
-import App from "./App";
+import App from "./pages/App";
 import { AppProvider } from "./context";
 import {
   createBrowserRouter,
   RouterProvider,
   Navigate,
 } from "react-router-dom";
-import Start from "./Start";
-import Login from "./Login";
+import Login from "./pages/Login";
 import { UserProvider } from "./userContext";
-import End from "./End";
+import End from "./pages/End";
 import PrivateRoutes from "./PrivateRoutes";
+import Start from "./pages/Start";
 
 const router = createBrowserRouter([
   {

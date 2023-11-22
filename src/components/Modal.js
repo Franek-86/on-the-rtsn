@@ -1,5 +1,5 @@
 import React from "react";
-import { useGlobalContext } from "./context";
+import { useGlobalContext } from "../context";
 import { FaOctopusDeploy } from "react-icons/fa";
 import { SiChainguard } from "react-icons/si";
 import { AiOutlineCloseSquare } from "react-icons/ai";
@@ -10,15 +10,17 @@ const Modal = () => {
     handleSubmit,
     isModalOpen,
     closeModal,
-    quiz,
     center,
     locationIndex,
+    quiz,
+    stopData,
+    loading,
+    test,
   } = useGlobalContext();
-  const { category, amount, difficulty, text } = quiz;
-  let flag = false;
-  if (category === "Musicals_And_Theatres") {
-    flag = true;
-  }
+  // const { location, amount, difficulty, text } = quiz;
+
+  // const { location, image, text } = stopData?.stop[0];
+
   return (
     <section
       className={!isModalOpen ? "section-modal" : "section-modal show-modal"}
@@ -28,34 +30,14 @@ const Modal = () => {
           <div className='modal-icon'>
             <SiChainguard className='modal-brand-icon' />
           </div>
-          <h3>the {flag ? "Musicals & Theatres" : category} quiz</h3>
+          <h3>the {test ? stopData?.stop[0].location : "loading"}'s quiz</h3>
           <button onClick={closeModal} className='close-modal'>
             <AiOutlineCloseSquare className='modal-brand' />
           </button>
         </div>
         <div className='modal-center'>
           <div className='modal-text'>
-            <p>{text}</p>
-            <ul>
-              <li>
-                <h5>Category: </h5>
-                <span>{flag ? "Musicals & Theatres" : category}</span>;
-              </li>
-              <li>
-                <h5>Number of questions: </h5>
-                <span>{amount};</span>
-              </li>
-              <li>
-                <h5>Difficulty level: </h5>
-                <span>{difficulty};</span>
-              </li>
-              <li>
-                <h5>Test number: </h5>
-                <span>
-                  {locationIndex + 1} of {center.length};
-                </span>
-              </li>
-            </ul>
+            <p>{test ? stopData?.stop[0].text : "loading"}</p>
           </div>
           <div className='open-modal-btn'>
             <button className='btn open-btn' onClick={handleSubmit}>

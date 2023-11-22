@@ -1,6 +1,6 @@
 import React from "react";
 import TestResult from "./TestResult";
-import { useGlobalContext } from "./context";
+import { useGlobalContext } from "../context";
 
 const Questions = () => {
   const {
@@ -29,7 +29,7 @@ const Questions = () => {
       {isSecondModalOpen ? (
         <TestResult />
       ) : (
-        <article className='quiz'>
+        <article className='modal quiz' style={{ overflow: "scroll" }}>
           <p className='correct-answers'>
             correct answers : {correct}/{index}
           </p>

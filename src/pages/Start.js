@@ -1,11 +1,9 @@
 import React from "react";
-import { test } from "./testServer";
-import { useGlobalContext } from "./context";
+import { useGlobalContext } from "../context";
 import { Link } from "react-router-dom";
 
 const Start = () => {
   // const { startJourney } = useGlobalContext();
-  test();
   return (
     <section className='start-section'>
       <div className='banner'>

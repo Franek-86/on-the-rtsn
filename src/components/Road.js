@@ -1,17 +1,11 @@
 import React from "react";
-import bus from "./bus.png";
-import { useGlobalContext } from "./context";
+import bus from "../images/bus.png";
+import { useGlobalContext } from "../context";
 var treesArr = Array.apply(null, { length: 20 });
 var linesArr = Array.apply(null, { length: 40 });
 
 const Road = () => {
-  const {
-    center,
-
-    locationIndex,
-
-    slide,
-  } = useGlobalContext();
+  const { center, locationIndex, slide } = useGlobalContext();
   return (
     <section
       className={

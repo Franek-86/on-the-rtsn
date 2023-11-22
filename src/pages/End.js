@@ -1,10 +1,10 @@
 import React from "react";
 import { FaTrophy } from "react-icons/fa";
 // import { useGlobalContext } from "./context";
-import { useGlobalContext } from "./context";
-import { useUserContext } from "./userContext";
+import { useGlobalContext } from "../context";
+import { useUserContext } from "../userContext";
 import { Link } from "react-router-dom";
-import Map from "./Map";
+import Map from "../components/Map";
 
 const End = () => {
   // const { start, reStart } = useGlobalContext();

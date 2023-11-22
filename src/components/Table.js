@@ -1,5 +1,5 @@
 import React from "react";
-import { useGlobalContext } from "./context";
+import { useGlobalContext } from "../context";
 import { MdLocationPin } from "react-icons/md";
 import { MdRoom } from "react-icons/md";
 import MetroTable from "./MetroTable";

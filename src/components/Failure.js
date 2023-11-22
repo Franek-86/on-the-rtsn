@@ -1,5 +1,5 @@
 import React from "react";
-import { useGlobalContext } from "./context";
+import { useGlobalContext } from "../context";
 console.log();
 const Failure = () => {
   const {
@@ -33,7 +33,6 @@ const Failure = () => {
             onClick={() => {
               closeSecondModal();
               closeModal();
-              resetQuiz();
             }}
           >
             back to map

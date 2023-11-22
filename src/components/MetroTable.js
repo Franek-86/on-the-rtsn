@@ -1,6 +1,6 @@
 import React from "react";
-import { useGlobalContext } from "./context";
-import { useUserContext } from "./userContext";
+import { useGlobalContext } from "../context";
+import { useUserContext } from "../userContext";
 const MetroTable = () => {
   const { center, locationIndex } = useGlobalContext();
   const { logout, user } = useUserContext();

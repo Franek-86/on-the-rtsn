@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from "react";
 import { useRef } from "react";
-import { useGlobalContext } from "./context";
+import { useGlobalContext } from "../context";
 import "leaflet/dist/leaflet.css";
 
 import Road from "./Road";
@@ -22,10 +22,13 @@ import {
   MapContainer,
   isPassed,
 } from "react-leaflet";
-import octopus from "./octopus.png";
+import octopus from "../images/octopus.png";
 import Table from "./Table";
+import Welcome from "./Welcome";
+import { useUserContext } from "../userContext";
 
 const Map = () => {
+  // const [isDisabled, setIsDisabled] = useState(false);
   const {
     openModal,
     isPassed,
@@ -41,27 +44,47 @@ const Map = () => {
     test,
     slide,
     slideRoad,
+    getStopData,
+    getStop,
+    stopData,
+    welcomeModal,
+    setWelcomeModal,
   } = useGlobalContext();
+  const { showAlert } = useUserContext();
   const blackOptions = { color: "black" };
   const brownOption = { color: "#cc660e" };
   const redOptions = { color: "red" };
   const fillRedOptions = { color: "red", fillColor: "white" };
   const purpleOptions = { color: "purple" };
+  useEffect(() => {
+    setWelcomeModal(true);
+    // setTimeout(() => {
+    //   setWelcomeModal(false);
+    //   console.log("ciao");
+    // }, [3000]);
+  }, []);
 
+  useEffect(() => {
+    getStopData();
+  }, [locationIndex]);
   const FlyToButton = ({ latlng }) => {
     const map = useMap();
     const fly = () => {
-      console.log(center.length);
+      // if (isDisabled === false) {
       if (locationIndex < center.length - 1) {
         nextLocation();
+
+        // getStopData();
       }
       if (locationIndex < center.length) {
         map.flyTo(latlng, 17, { duration: 2 });
       } else {
         console.log("stop it");
       }
+      // setIsDisabled(true);
       slideRoad();
       hideCricket();
+      // }
     };
     return (
       <div className='fly-btn-wrapper' onClick={fly}>
@@ -86,6 +109,7 @@ const Map = () => {
         }
       }
     >
+      {showAlert && <Welcome />}
       {/* <TileLayer
         attribution='Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url='https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png'
@@ -97,12 +121,14 @@ const Map = () => {
 
       {/* {test && <Test />} */}
       {isPassed ? <FlyToButton latlng={center[locationIndex + 1][1]} /> : null}
+      {/* ---------------------Welcome---------------------- */}
+      {/* {welcomeModal && <Welcome />} */}
       {/* ---------------------table---------------------- */}
       {!isModalOpen && <Table />}
       {/* ---------------------road----------------------- */}
       {!isModalOpen && <Road />}
       {/* -----------------circle markers----------------- */}
-      {!isPassed ? <CircleMarkers /> : null}
+      {!isPassed && <CircleMarkers />}
     </MapContainer>
   );
 };
