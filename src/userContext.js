@@ -76,9 +76,12 @@ const UserProvider = ({ children }) => {
   const registerUser = async (userInput) => {
     setLoading();
     try {
-      const { data } = await axios.post(`/api/v1/auth/register`, {
-        ...userInput,
-      });
+      const { data } = await axios.post(
+        `https://rtsn-v2b.onrender.com/api/v1/auth/register`,
+        {
+          ...userInput,
+        }
+      );
 
       dispatch({ type: REGISTER_USER_SUCCESS, payload: data.user.username });
       localStorage.setItem(
@@ -95,9 +98,12 @@ const UserProvider = ({ children }) => {
   const login = async (userInput) => {
     setLoading();
     try {
-      const { data } = await axios.post(`/api/v1/auth/login`, {
-        ...userInput,
-      });
+      const { data } = await axios.post(
+        `https://rtsn-v2b.onrender.com/api/v1/auth/login`,
+        {
+          ...userInput,
+        }
+      );
       dispatch({ type: REGISTER_USER_SUCCESS, payload: data.user.name });
       localStorage.setItem(
         "user",

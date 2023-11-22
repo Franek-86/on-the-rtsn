@@ -194,12 +194,12 @@ const AppProvider = ({ children }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { location } = stopData.stop[0];
-    const url = `/api/v1/quiz?location=${location}`;
+    const url = `https://rtsn-v2b.onrender.com/api/v1/quiz?location=${location}`;
     setUrl(url);
     fetchQuestions(url);
   };
   const getStopData = () => {
-    const url = `/api/v1/stops?stop=${locationIndex}`;
+    const url = `https://rtsn-v2b.onrender.com/api/v1/stops?stop=${locationIndex}`;
     fetchStopData(url);
   };
 
