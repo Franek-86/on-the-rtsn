@@ -63,7 +63,7 @@ const Login = () => {
                 },
                 required: {
                   value: true,
-                  message: "user name is required",
+                  message: "username is required",
                 },
               })}
             />
