@@ -52,15 +52,43 @@ const Login = () => {
             <Form.Control
               type='text'
               placeholder='name@example.com'
-              {...register("username")}
+              {...register("username",, {
+                maxLength: {
+                  value: 8,
+                  message: "username can't be longer then 8 characters",
+                },
+                minLength: {
+                  value: 2,
+                  message: "username can't be shorter then 2 characters",
+                },
+                required: {
+                  value: true,
+                  message: "user name is required",
+                },
+              })}
             />
+            <p className='form-validation-error'>{errors.username?.message}</p>
           </FloatingLabel>
           <FloatingLabel controlId='floatingPassword' label='Password'>
             <Form.Control
               type='password'
               placeholder='Password'
-              {...register("password")}
+              {...register("password", {
+                maxLength: {
+                  value: 10,
+                  message: "password max length is 10 characters",
+                },
+                minLength: {
+                  value: 4,
+                  message: "password minimum length is 4 characters",
+                },
+                required: {
+                  value: true,
+                  message: "password is required",
+                },
+              })}
             />
+            <p className='form-validation-error'>{errors.password?.message}</p>
           </FloatingLabel>
           <Button
             className='my-3'
