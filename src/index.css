@@ -271,6 +271,13 @@ a {
   font-weight: 600;
   padding-left: 0.5rem;
 }
+
+.form-validation-error {
+  padding-left: 0.8rem;
+  font-style: oblique;
+  color: var(--clr-primary-2) !important;
+  font-size: 0.8rem;
+}
 @media screen and (max-width: 500px) {
   .form-container {
     width: 80vw;
