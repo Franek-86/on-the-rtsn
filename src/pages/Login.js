@@ -52,7 +52,7 @@ const Login = () => {
             <Form.Control
               type='text'
               placeholder='name@example.com'
-              {...register("username",, {
+              {...register("username", {
                 maxLength: {
                   value: 8,
                   message: "username can't be longer then 8 characters",
