@@ -54,8 +54,8 @@ const Login = () => {
               placeholder='name@example.com'
               {...register("username", {
                 maxLength: {
-                  value: 8,
-                  message: "username can't be longer then 8 characters",
+                  value: 6,
+                  message: "username can't be longer then 6 characters",
                 },
                 minLength: {
                   value: 2,
@@ -79,8 +79,8 @@ const Login = () => {
                   message: "password max length is 10 characters",
                 },
                 minLength: {
-                  value: 4,
-                  message: "password minimum length is 4 characters",
+                  value: 6,
+                  message: "password minimum length is 6 characters",
                 },
                 required: {
                   value: true,
