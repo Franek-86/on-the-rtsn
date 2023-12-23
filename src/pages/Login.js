@@ -96,7 +96,7 @@ const Login = () => {
             type='submit'
             disabled={isLoading}
           >
-            {isLoading ? "Fetching User..." : "Submit"}
+            {isLoading ? "Loading..." : "Submit"}
           </Button>
           <p>
             {member ? "Not a member yet?" : "Already a member?"}
