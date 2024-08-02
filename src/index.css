@@ -1353,15 +1353,6 @@ li > h5 {
 
 /* ----------------------------pop up-------------------------------- */
 
-.test1 {
-  /* top: -8rem; */
-
-  /* background-color: red; */
-  /* height: 20rem;
-  width: 20rem;
-  z-index: 1000000; */
-}
-
 .leaflet-popup-content-wrapper {
   height: 10rem;
   width: 10rem;
