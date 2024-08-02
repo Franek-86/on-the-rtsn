@@ -40,9 +40,12 @@ const Modal = () => {
             <p>{test ? stopData?.stop[0].text : "loading"}</p>
           </div>
           <div className='open-modal-btn'>
-            <button className='btn open-btn'>watch video</button>
+            <button className='btn open-btn'>
+              watch video
+              {/* {test ? stopData?.stop[0]?.video : "loading"} */}
+            </button>
             <button className='btn open-btn' onClick={handleSubmit}>
-              start test {test ? stopData?.stop[0]?.video : "loading"}
+              start test
             </button>
           </div>
         </div>
