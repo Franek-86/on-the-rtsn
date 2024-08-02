@@ -427,6 +427,9 @@ li > h5 {
 .open-modal-btn {
   margin: 3rem 0;
   text-align: center;
+  justify-content: center;
+  gap: 1rem;
+  display: flex;
 }
 .open-btn {
   padding: 1rem 1.5rem;
