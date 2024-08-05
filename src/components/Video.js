@@ -7,7 +7,7 @@ const Video = () => {
       <video
         width='320'
         height='240'
-        src='movie.mp4'
+        src='https://www.youtube.com/watch?v=pbhncrh14xo&ab_channel=FrancescoLeccese'
         type='video/mp4'
         controls
       ></video>
