@@ -1,9 +1,13 @@
 import React from "react";
 import { useGlobalContext } from "../context";
+import { AiOutlineCloseSquare } from "react-icons/ai";
 const Video = () => {
-  const { stopData, test } = useGlobalContext();
+  const { stopData, test, closeVideo } = useGlobalContext();
   return (
     <div className='video-section'>
+      <button onClick={closeVideo} className='close-modal'>
+        <AiOutlineCloseSquare className='modal-brand' />
+      </button>
       <iframe
         width='560'
         height='315'
@@ -19,12 +23,3 @@ const Video = () => {
 };
 
 export default Video;
-// <iframe
-//   width='560'
-//   height='315'
-//   src='https://youtu.be/pbhncrh14xo'
-//   title='YouTube video player'
-//   frameborder='0'
-//   allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-//   referrerpolicy='strict-origin-when-cross-origin'
-// ></iframe>;

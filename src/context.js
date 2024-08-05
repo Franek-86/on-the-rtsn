@@ -175,6 +175,9 @@ const AppProvider = ({ children }) => {
   const playVideo = () => {
     setVideo(true);
   };
+  const closeVideo = () => {
+    setVideo(false);
+  };
   const nextQuestion = () => {
     if (index > questions.length - 1) {
       setIndex(0);
@@ -253,6 +256,7 @@ const AppProvider = ({ children }) => {
         reStart,
         slideRoad,
         playVideo,
+        closeVideo,
       }}
     >
       {children}
