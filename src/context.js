@@ -43,6 +43,7 @@ const AppProvider = ({ children }) => {
   const [isPassed, setIsPassed] = useState(false);
   const [url, setUrl] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [video, setVideo] = useState(false);
   const [isSecondModalOpen, setIsSecondModalOpen] = useState(false);
   const [waiting, setWaiting] = useState(true);
   const [loading, setLoading] = useState(false);
@@ -171,6 +172,9 @@ const AppProvider = ({ children }) => {
   const hideCricket = () => {
     setIsPassed(false);
   };
+  const playVideo = () => {
+    setVideo(true);
+  };
   const nextQuestion = () => {
     if (index > questions.length - 1) {
       setIndex(0);
@@ -224,6 +228,7 @@ const AppProvider = ({ children }) => {
         stopData,
         test,
         welcomeModal,
+        video,
         setWelcomeModal,
         setSlideRoad,
         getStopData,
@@ -247,6 +252,7 @@ const AppProvider = ({ children }) => {
         setLocIndex,
         reStart,
         slideRoad,
+        playVideo,
       }}
     >
       {children}

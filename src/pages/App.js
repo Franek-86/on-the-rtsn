@@ -7,9 +7,12 @@ import Modal from "../components/Modal";
 import { useGlobalContext } from "../context";
 
 function App() {
-  const { waiting, loading } = useGlobalContext();
+  const { waiting, loading, video } = useGlobalContext();
 
   if (loading) {
+    return <Loading />;
+  }
+  if (video) {
     return <Loading />;
   }
 

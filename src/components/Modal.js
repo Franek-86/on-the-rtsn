@@ -16,6 +16,7 @@ const Modal = () => {
     stopData,
     loading,
     test,
+    startVideo,
   } = useGlobalContext();
   // const { location, amount, difficulty, text } = quiz;
 
@@ -40,7 +41,7 @@ const Modal = () => {
             <p>{test ? stopData?.stop[0].text : "loading"}</p>
           </div>
           <div className='open-modal-btn'>
-            <button className='btn open-btn'>
+            <button className='btn open-btn' onClick={startVideo}>
               watch video
               {/* {test ? stopData?.stop[0]?.video : "loading"} */}
             </button>

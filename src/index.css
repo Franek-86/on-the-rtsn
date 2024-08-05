@@ -1436,3 +1436,11 @@ li > h5 {
     height: 60vh;
   }
 }
+
+/* ----------------------------video-------------------------------- */
+
+.video-section {
+  height: 100vh;
+  width: 100vw;
+  background-color: red;
+}
