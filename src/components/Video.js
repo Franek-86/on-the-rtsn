@@ -17,7 +17,7 @@ const Video = () => {
       <iframe
         width='560'
         height='315'
-        src='https://youtu.be/pbhncrh14xo'
+        src='https://www.youtube.com/embed/pbhncrh14xo?si=YCDNX3gaABw5vXLU'
         title='YouTube video player'
         frameborder='0'
         allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
@@ -28,3 +28,12 @@ const Video = () => {
 };
 
 export default Video;
+// <iframe
+//   width='560'
+//   height='315'
+//   src='https://youtu.be/pbhncrh14xo'
+//   title='YouTube video player'
+//   frameborder='0'
+//   allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+//   referrerpolicy='strict-origin-when-cross-origin'
+// ></iframe>;
