@@ -54,8 +54,8 @@ const Login = () => {
               placeholder='name@example.com'
               {...register("username", {
                 maxLength: {
-                  value: 6,
-                  message: "username can't be longer then 6 characters",
+                  value: 12,
+                  message: "username can't be longer then 12 characters",
                 },
                 minLength: {
                   value: 2,
