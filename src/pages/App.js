@@ -3,9 +3,9 @@ import Map from "../components/Map";
 import Loading from "../components/Loading";
 import Questions from "../components/Questions";
 import Modal from "../components/Modal";
-import Video from "./video";
 
 import { useGlobalContext } from "../context";
+import Video from "./video";
 
 function App() {
   const { waiting, loading, video } = useGlobalContext();

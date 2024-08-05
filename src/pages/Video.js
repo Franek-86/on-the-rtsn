@@ -1,6 +1,6 @@
 import React from "react";
 // import { useGlobalContext } from "../context";
-const video = () => {
+const Video = () => {
   // const { startJourney } = useGlobalContext();
   return (
     <div className='video-section'>
@@ -15,4 +15,4 @@ const video = () => {
   );
 };
 
-export default video;
+export default Video;
