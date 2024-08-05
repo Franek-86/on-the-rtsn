@@ -5,7 +5,7 @@ const Video = () => {
   const { stopData, test, closeVideo } = useGlobalContext();
   return (
     <>
-      <button onClick={closeVideo} className='close-modal'>
+      <button onClick={closeVideo} className='close-modal close-video'>
         <AiOutlineCloseSquare className='modal-brand' />
       </button>
 

@@ -408,6 +408,12 @@ li > h5 {
   font-size: 2rem;
   color: var(--clr-secondary-6);
 }
+.close-video {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  color: var(--clr-primary-5);
+}
 .close-modal:hover {
   cursor: pointer;
 }
