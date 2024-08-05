@@ -4,13 +4,16 @@ const Video = () => {
   // const { startJourney } = useGlobalContext();
   return (
     <div className='video-section'>
-      <video
-        width='320'
-        height='240'
-        src='https://www.youtube.com/watch?v=pbhncrh14xo&ab_channel=FrancescoLeccese'
-        type='video/mp4'
-        controls
-      ></video>
+      <iframe
+        width='560'
+        height='315'
+        src='https://www.youtube.com/embed/pbhncrh14xo?si=wiNa_j6fcIAAt3RO'
+        title='YouTube video player'
+        frameborder='0'
+        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+        referrerpolicy='strict-origin-when-cross-origin'
+        allowfullscreen
+      ></iframe>
     </div>
   );
 };
