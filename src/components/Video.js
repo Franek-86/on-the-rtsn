@@ -6,7 +6,7 @@ const Video = () => {
   return (
     <>
       <button onClick={closeVideo} className='close-modal close-video'>
-        <AiOutlineCloseSquare className='modal-brand' />
+        <AiOutlineCloseSquare className='' />
       </button>
 
       <div className='video-section'>
