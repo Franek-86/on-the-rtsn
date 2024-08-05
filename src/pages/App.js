@@ -3,6 +3,7 @@ import Map from "../components/Map";
 import Loading from "../components/Loading";
 import Questions from "../components/Questions";
 import Modal from "../components/Modal";
+import Video from "./video";
 
 import { useGlobalContext } from "../context";
 
@@ -13,7 +14,7 @@ function App() {
     return <Loading />;
   }
   if (video) {
-    return <Loading />;
+    return <Video />;
   }
 
   if (waiting) {
