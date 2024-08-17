@@ -43,9 +43,7 @@ const Login = () => {
             <div className='formLoader'></div>
           </div>
         ) : (
-          <h2 style='font-family: monospace'>
-            {!member ? "Register" : "Login"}
-          </h2>
+          <h2>{!member ? "Register" : "Login"}</h2>
         )}
         <Form className='form-container' onSubmit={handleSubmit(onSubmit)}>
           {showAlert && (
