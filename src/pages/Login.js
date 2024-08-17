@@ -38,7 +38,9 @@ const Login = () => {
     <div className='form-page'>
       <div className='banner'>
         {user && <Navigate to='/rtsn' replace={true} />}
-        <div className='formLoader'></div>
+        <div className='formLoaderContainer'>
+          <div className='formLoader'></div>
+        </div>
         {/* {isLoading ? (
           <div className='formLoader'></div>
         ) : (
