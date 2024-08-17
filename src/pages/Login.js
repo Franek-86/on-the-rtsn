@@ -38,6 +38,7 @@ const Login = () => {
     <div className='form-page'>
       <div className='banner'>
         {user && <Navigate to='/rtsn' replace={true} />}
+        {member ? "Register" : "Login"}
         <Form className='form-container' onSubmit={handleSubmit(onSubmit)}>
           {showAlert && (
             <div className='alert alert-danger'>
