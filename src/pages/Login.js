@@ -104,7 +104,12 @@ const Login = () => {
           <p>
             {member ? "Not a member yet?" : "Already a member?"}
 
-            <button type='button' onClick={toggleMember} className='member-btn'>
+            <button
+              disabled={isLoading}
+              type='button'
+              onClick={toggleMember}
+              className='member-btn'
+            >
               {member ? "Register" : "Login"}
             </button>
           </p>
