@@ -138,7 +138,7 @@ const UserProvider = ({ children }) => {
       dispatch({ type: SET_ALERT_OFF });
     }, 3000);
   }, [state.showAlert]);
-  const [member, setIsMember] = React.useState(true);
+  const [member, setIsMember] = React.useState(false);
   return (
     <AppContext.Provider
       value={{
