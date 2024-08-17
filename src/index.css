@@ -307,7 +307,7 @@ a {
   background-clip: text;
   animation: l8 2s infinite steps(11);
 }
-.loader:before {
+.formLoader:before {
   content: "Loading...";
 }
 @keyframes l8 {
