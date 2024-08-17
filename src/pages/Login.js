@@ -39,7 +39,10 @@ const Login = () => {
       <div className='banner'>
         {user && <Navigate to='/rtsn' replace={true} />}
         {isLoading ? (
-          <div className='formLoader'></div>
+          <div className='formLoaderContainer'>
+            {" "}
+            <div className='formLoader'></div>
+          </div>
         ) : (
           <h2>{!member ? "Register" : "Login"}</h2>
         )}

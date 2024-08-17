@@ -284,7 +284,10 @@ a {
   }
 }
 
-/* HTML: <div class="loader"></div> */
+.formLoaderContainer {
+  display: flex;
+  align-items: center;
+}
 .formLoader {
   height: 30px;
   aspect-ratio: 2.5;
