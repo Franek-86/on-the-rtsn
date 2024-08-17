@@ -284,20 +284,43 @@ a {
   }
 }
 
+/* HTML: <div class="loader"></div> */
 .formLoader {
-  --c: #87ceeb00 64%, #87ceeb 66% 98%, #87ceeb00 101%;
-  animation: l1 1s linear infinite;
-  aspect-ratio: 6;
-  background: radial-gradient(35% 146% at 50% 159%, var(--c)) 0 0,
-    radial-gradient(35% 146% at 50% -59%, var(--c)) 25% 100%;
-  background-repeat: repeat-x;
-  background-size: 33.33333% 50%;
   height: 30px;
-  width: 100%;
+  aspect-ratio: 2.5;
+  --_g: no-repeat radial-gradient(farthest-side, #000 90%, #0000);
+  background: var(--_g), var(--_g), var(--_g), var(--_g);
+  background-size: 20% 50%;
+  animation: l43 1s infinite linear;
 }
-@keyframes l1 {
-  to {
-    background-position: 50% 0, 75% 100%;
+@keyframes l43 {
+  0% {
+    background-position: calc(0 * 100% / 3) 50%, calc(1 * 100% / 3) 50%,
+      calc(2 * 100% / 3) 50%, calc(3 * 100% / 3) 50%;
+  }
+  16.67% {
+    background-position: calc(0 * 100% / 3) 0, calc(1 * 100% / 3) 50%,
+      calc(2 * 100% / 3) 50%, calc(3 * 100% / 3) 50%;
+  }
+  33.33% {
+    background-position: calc(0 * 100% / 3) 100%, calc(1 * 100% / 3) 0,
+      calc(2 * 100% / 3) 50%, calc(3 * 100% / 3) 50%;
+  }
+  50% {
+    background-position: calc(0 * 100% / 3) 50%, calc(1 * 100% / 3) 100%,
+      calc(2 * 100% / 3) 0, calc(3 * 100% / 3) 50%;
+  }
+  66.67% {
+    background-position: calc(0 * 100% / 3) 50%, calc(1 * 100% / 3) 50%,
+      calc(2 * 100% / 3) 100%, calc(3 * 100% / 3) 0;
+  }
+  83.33% {
+    background-position: calc(0 * 100% / 3) 50%, calc(1 * 100% / 3) 50%,
+      calc(2 * 100% / 3) 50%, calc(3 * 100% / 3) 100%;
+  }
+  100% {
+    background-position: calc(0 * 100% / 3) 50%, calc(1 * 100% / 3) 50%,
+      calc(2 * 100% / 3) 50%, calc(3 * 100% / 3) 50%;
   }
 }
 
