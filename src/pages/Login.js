@@ -38,17 +38,15 @@ const Login = () => {
     <div className='form-page'>
       <div className='banner'>
         {user && <Navigate to='/rtsn' replace={true} />}
-        <div className='formLoaderContainer'>
-          {" "}
-          <div className='formLoader'></div>
-        </div>
-        {/* {isLoading ? (
+        {isLoading ? (
           <div className='formLoaderContainer'>
             <div className='formLoader'></div>
           </div>
         ) : (
-          <h2>{!member ? "Register" : "Login"}</h2>
-        )} */}
+          <h2 style='font-family: monospace'>
+            {!member ? "Register" : "Login"}
+          </h2>
+        )}
         <Form className='form-container' onSubmit={handleSubmit(onSubmit)}>
           {showAlert && (
             <div className='alert alert-danger'>
