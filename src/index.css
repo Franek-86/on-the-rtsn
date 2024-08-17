@@ -288,7 +288,7 @@ a {
 .formLoader {
   height: 30px;
   aspect-ratio: 2.5;
-  --_g: no-repeat radial-gradient(farthest-side, #000 90%, #0000);
+  --_g: no-repeat radial-gradient(farthest-side, #87ceeb 90%, #87cfeb00);
   background: var(--_g), var(--_g), var(--_g), var(--_g);
   background-size: 20% 50%;
   animation: l43 1s infinite linear;
