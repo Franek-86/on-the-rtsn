@@ -286,14 +286,14 @@ a {
 
 .formLoaderContainer {
   display: flex;
-  align-items: center;
+  justify-content: center;
 }
 
 /* HTML: <div class="loader"></div> */
 .formLoader {
   width: fit-content;
   font-weight: bold;
-  font-family: monospace;
+  /* font-family: monospace; */
   font-size: 30px;
   color: #0000;
   background: linear-gradient(
