@@ -53,6 +53,7 @@ const Login = () => {
             <Form.Control
               type='text'
               placeholder='name@example.com'
+              disabled={isLoading}
               {...register("username", {
                 maxLength: {
                   value: 12,
@@ -74,6 +75,7 @@ const Login = () => {
             <Form.Control
               type='password'
               placeholder='Password'
+              disabled={isLoading}
               {...register("password", {
                 maxLength: {
                   value: 10,
