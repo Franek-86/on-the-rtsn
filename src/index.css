@@ -299,7 +299,7 @@ a {
   background: linear-gradient(
       90deg,
       #000 calc(50% - 0.5ch),
-      #c02942 0 calc(50% + 0.5ch),
+      var(--color2) 0 calc(50% + 0.5ch),
       #000 0
     )
     right/calc(200% + 1ch) 100%;
