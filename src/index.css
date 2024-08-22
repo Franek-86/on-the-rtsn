@@ -501,7 +501,7 @@ li > h5 {
   border: 2px solid rgba(199, 71, 71, 0.616);
 }
 
-.leaflet-popup-close-button span {
+.leaflet-popup-close-button {
   display: none;
 }
 
