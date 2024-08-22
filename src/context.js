@@ -25,12 +25,21 @@ const setSlideRoad = () => {
   }
   return slideIndex;
 };
+<iframe
+  src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5034.043217228011!2d16.758744868012148!3d41.13412474645418!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1347efa6b72d426d%3A0xc4af8b39c1f30a02!2sBari%20Aeroporto!5e0!3m2!1sen!2spl!4v1724342198703!5m2!1sen!2spl'
+  width='600'
+  height='450'
+  style='border:0;'
+  allowfullscreen=''
+  loading='lazy'
+  referrerpolicy='no-referrer-when-downgrade'
+></iframe>;
 
 const AppProvider = ({ children }) => {
   // const [locationIndex, setLocationIndex] = useState(setLocIndex);
   const [locationIndex, setLocationIndex] = useState(setLocIndex);
   const [center, setCenter] = useState([
-    ["airport", { lat: 41.1376372629904, lng: 16.765180540261554 }],
+    ["airport", { lat: 41.13412474645418, lng: 16.758744868012148 }],
     ["duomo", { lat: 41.12859815408936, lng: 16.86877482698253 }],
     ["theatre", { lat: 41.12366528257363, lng: 16.872688445798705 }],
     ["games", { lat: 41.10871623899713, lng: 16.886143782588302 }],
