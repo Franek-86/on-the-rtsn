@@ -101,11 +101,13 @@ const Map = () => {
       center={center[locationIndex][1]}
       zoom={17}
       scrollWheelZoom={false}
-      eventHandlers={{
-        click: () => {
-          console.log("marker clicked");
-        },
-      }}
+      eventHandlers={
+        {
+          // click: () => {
+          //   console.log("marker clicked");
+          // },
+        }
+      }
     >
       {showAlert && <Welcome />}
       {/* <TileLayer
