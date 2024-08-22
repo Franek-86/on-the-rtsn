@@ -108,6 +108,7 @@ const Map = () => {
           // },
         }
       }
+      closePopupOnClick={false}
     >
       {showAlert && <Welcome />}
       {/* <TileLayer
