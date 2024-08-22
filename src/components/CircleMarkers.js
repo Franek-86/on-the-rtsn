@@ -97,7 +97,7 @@ const CircleMarkers = () => {
               className='popup-image '
               src={test ? stopData.stop[0].image : "null"}
               alt={test ? stopData.stop[0].location : "loading"}
-              onClick={() => console.log("ciao")}
+              onClick={() => openModal()}
             />
           </Popup>
         ) : null}
