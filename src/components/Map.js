@@ -109,6 +109,7 @@ const Map = () => {
         }
       }
       closePopupOnClick={false}
+      dragging={false}
     >
       {showAlert && <Welcome />}
       {/* <TileLayer
